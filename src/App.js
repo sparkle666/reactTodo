@@ -9,7 +9,7 @@ class App extends Component {
         {
             id: 1,
             title: "Make dinner",
-            completed: false,
+            completed: true,
         },
         {
             id: 2,

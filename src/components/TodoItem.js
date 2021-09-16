@@ -3,16 +3,23 @@ import PropTypes from 'prop-types'
 
 class TodoItem extends Component{
     getStyle = () => {
-        if(this.props.todo.completed){
-            return {
-                textDecoration: "line-through",
-            }
-        } 
-        else {
-            return {
-                textDecoration: 'none',
-                backgroundColor: 'darkgrey'
-            }
+        // if(this.props.todo.completed){
+        //     return {
+        //         textDecoration: "line-through",
+        //     }
+        // } 
+        // else {
+        //     return {
+        //         textDecoration: 'none',
+        //         backgroundColor: 'darkgrey'
+        //     }
+        // }
+        return {
+            textDecoration: this.props.todo.completed ? "line-through" : "none",
+            backgroundColor: "#f4f4f4",
+            padding: "10px",
+            borderBottom: '1px #ccc dotted'
+
         }
     }
     render(){
