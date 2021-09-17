@@ -23,10 +23,20 @@ class App extends Component {
         },
     ]
 }
+
+markCompleted = (id) => {
+    this.setState({todo: this.state.todos.map(todo => {
+      if (todo.id === id){
+        todo.completed = !todo.completed // Checks if the iterated to is === the id and sets the inverse of it
+      }
+      return todo;
+    })});
+}
+
   render(){
       return (
         <div className="App">
-          <Todos todos = {this.state.todos} />
+          <Todos todos = {this.state.todos} markCompleted = {this.markCompleted} />
         </div>
       );
   }

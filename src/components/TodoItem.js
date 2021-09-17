@@ -14,6 +14,7 @@ class TodoItem extends Component{
         //         backgroundColor: 'darkgrey'
         //     }
         // }
+    
         return {
             textDecoration: this.props.todo.completed ? "line-through" : "none",
             backgroundColor: "#f4f4f4",
@@ -22,11 +23,20 @@ class TodoItem extends Component{
 
         }
     }
+
+
+    // add a prop of markcompleted to todoitem and use the prop on the main todo compo and add func.
     render(){
+        const {id, title} = this.props.todo // Using constructor to pull props data
+
         return (
             <div style= {this.getStyle()}>
-                <p>{this.props.todo.title}</p>
-            </div>
+                <p>
+                    <input type = 'checkbox' onChange = {this.props.markCompleted.bind(this, id)} /> 
+                    { '  ' } 
+                    {title}
+                </p>
+            </div> 
         )
     }
 }
