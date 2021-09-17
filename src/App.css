@@ -11,3 +11,18 @@ a {
   color: #333;
   text-decoration: none;
 }
+.container{
+  padding: 0 1rem;
+  margin: 0px 100px 0px 100px;
+}
+.btn{
+  display: inline-block;
+  border: none;
+  background: #555;
+  color: white;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+.btn:hover{
+  background-color: #666;
+}
