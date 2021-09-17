@@ -1,7 +1,8 @@
 // import { Component } from 'react/cjs/react.production.min';
 import './App.css';
 import Todos from './components/Todos';
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Header from './components/layout/Header';
 
 class App extends Component {
   state = {
@@ -9,7 +10,7 @@ class App extends Component {
         {
             id: 1,
             title: "Make dinner",
-            completed: true,
+            completed: false,
         },
         {
             id: 2,
@@ -32,11 +33,18 @@ markCompleted = (id) => {
       return todo;
     })});
 }
+// Delete todo
 
+delTodo = (id) => {
+  this.setState({
+    todos: [...this.state.todos.filter(todo => todo.id !== id)]
+  })
+}
   render(){
       return (
         <div className="App">
-          <Todos todos = {this.state.todos} markCompleted = {this.markCompleted} />
+          <Header />
+          <Todos todos = {this.state.todos} markCompleted = {this.markCompleted} delTodo = {this.delTodo} />
         </div>
       );
   }

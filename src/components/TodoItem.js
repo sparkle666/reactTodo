@@ -35,12 +35,22 @@ class TodoItem extends Component{
                     <input type = 'checkbox' onChange = {this.props.markCompleted.bind(this, id)} /> 
                     { '  ' } 
                     {title}
+                    <button style = {btnStyle} onClick = {this.props.delTodo.bind(this, id)}> x </button>
                 </p>
             </div> 
         )
     }
 }
 
+const btnStyle = {
+    padding: '2px 6px',
+    backgroundColor: 'green',
+    float: 'right',
+    border: 'none',
+    borderRadius: '50%',
+    color: 'white',
+    cursor: 'pointer'
+}
 TodoItem.propTypes = {
     todoitem: PropTypes.object.isRequired
 }
