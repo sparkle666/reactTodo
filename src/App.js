@@ -26,27 +26,33 @@ class App extends Component {
     ]
 }
 
-markCompleted = (id) => {
-    this.setState({todo: this.state.todos.map(todo => {
-      if (todo.id === id){
-        todo.completed = !todo.completed // Checks if the iterated to is === the id and sets the inverse of it
-      }
-      return todo;
-    })});
-}
+  markCompleted = (id) => {
+      this.setState({todo: this.state.todos.map(todo => {
+        if (todo.id === id){
+          todo.completed = !todo.completed // Checks if the iterated to is === the id and sets the inverse of it
+        }
+        return todo;
+      })});
+  }
 // Delete todo
 
-delTodo = (id) => {
-  this.setState({
-    todos: [...this.state.todos.filter(todo => todo.id !== id)]
-  })
-}
+  delTodo = (id) => {
+    this.setState({
+      todos: [...this.state.todos.filter(todo => todo.id !== id)]
+    })
+  }
+  
+  // Add a todo
+  addTodo = (title) => {
+    // console.log(...this.state.todos)
+  }
+
   render(){
       return (
         <div className="App">
           <div className="container">
             <Header />
-            <AddTodo />
+            <AddTodo addTodo = {this.addTodo} />
             <Todos todos = {this.state.todos} markCompleted = {this.markCompleted} delTodo = {this.delTodo} />
           </div>
           
